@@ -24,7 +24,7 @@ function FaqListItem({ q, a }: { q: string; a: string }) {
     <li className="flex  cursor-pointer flex-col  gap-2 rounded-lg hover:bg-blue-50 p-1 border-b border-gray-200 transition duration-200 ease-in">
       <button
         onClick={() => setOpen(!open)}
-        className="flex  justify-between gap-2 md:text-xl font-medium"
+        className="flex  justify-between text-start gap-2 md:text-xl font-medium"
       >
         {q}
         <IoIosAdd

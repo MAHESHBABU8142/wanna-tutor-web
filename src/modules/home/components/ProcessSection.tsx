@@ -1,5 +1,4 @@
 "use client";
-
 import Text from "@/components/ui/Text";
 import cn from "@/lib/class-merge";
 import { ComponentPropsWithoutRef, useState } from "react";
@@ -9,6 +8,8 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { MdOutlineManageSearch } from "react-icons/md";
 import { MdOutlineExplore } from "react-icons/md";
 import { FaPersonCircleCheck } from "react-icons/fa6";
+import ProcessList from "@/components/shared/ProcessList";
+
 export default function ProcessSection() {
   const [selectedRole, setSelectedRole] = useState<"tutor" | "parent">("tutor");
   return (
@@ -30,11 +31,12 @@ export default function ProcessSection() {
             Parent/Student
           </FilterButton>
         </div>
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 md:pt-4">
-          {selectedRole === "tutor"
-            ? TUTOR_STEPS.map((step) => <Step key={step.title} {...step} />)
-            : PARENT_STEPS.map((step) => <Step key={step.title} {...step} />)}
-        </ul>
+
+        {selectedRole === "tutor" ? (
+          <ProcessList steps={TUTOR_STEPS} />
+        ) : (
+          <ProcessList steps={PARENT_STEPS} />
+        )}
       </section>
     </section>
   );
@@ -57,25 +59,7 @@ const FilterButton = ({
   );
 };
 
-type StepProps = {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-};
-
-function Step({ title, description, icon: Icon }: StepProps) {
-  return (
-    <li className="flex flex-col bg-blue-50 gap-4 items-start border border-gray-300 rounded-lg p-6">
-      {Icon}
-      <Text className="md:text-3xl text-2xl">{title}</Text>
-      <Text variant="secondary" className="text-base">
-        {description}
-      </Text>
-    </li>
-  );
-}
-
-const TUTOR_STEPS: StepProps[] = [
+const TUTOR_STEPS = [
   {
     title: "Register",
     description: "Create your tutor profile with your details",
@@ -93,7 +77,7 @@ const TUTOR_STEPS: StepProps[] = [
   },
 ];
 
-const PARENT_STEPS: StepProps[] = [
+const PARENT_STEPS = [
   {
     title: "Search",
     description: "Find tutors by subject, class, or location",
