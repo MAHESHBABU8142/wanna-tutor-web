@@ -40,8 +40,15 @@ export default function FormSection() {
   return (
     <>
       {isSucessShown && <FormSuccess />}
-      <section className="py-12 px-8 flex flex-col gap-4 md:gap-8 md:px-[8%]">
+      <section className="px-8 flex flex-col gap-4 md:gap-8 md:px-[8%]">
         <Text>Please fill out the form below</Text>
+        <Text
+          variant="secondary"
+          className="text-gray-600 text-base md:text-base"
+        >
+          After submitting, our team will contact you personally to verify
+          details and complete your profile.
+        </Text>
         <form
           id="become-tutor-form"
           onSubmit={handleSubmit}

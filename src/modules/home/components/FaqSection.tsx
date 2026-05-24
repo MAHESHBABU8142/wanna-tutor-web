@@ -3,23 +3,23 @@ import Text from "@/components/ui/Text";
 export default function FaqSection() {
   const faqList = [
     {
-      q: "What is TutorMatch?",
-      a: "TutorMatch is a platform that connects students with qualified tutors for personalized learning experiences.",
+      q: "What is WannaTutor?",
+      a: "WannaTutor is a platform that connects students with qualified tutors for personalized learning experiences.",
     },
     {
       q: "How do I find a tutor?",
       a: "Search tutors by subject, class, or location and explore profiles to find the right match.",
     },
     {
-      q: "Can I become a tutor on TutorMatch?",
-      a: "Yes, anyone with relevant expertise and teaching experience can apply to become a tutor on TutorMatch.",
+      q: "Can I become a tutor on WannaTutor?",
+      a: "Yes, anyone with relevant expertise and teaching experience can apply to become a tutor on WannaTutor.",
     },
     {
       q: "Are tutors verified?",
-      a: " Yes, all tutors on TutorMatch go through a verification process to ensure they meet our quality standards.",
+      a: " Yes, all tutors on WannaTutor go through a verification process to ensure they meet our quality standards.",
     },
     {
-      q: "Is TutorMatch free to use?",
+      q: "Is WannaTutor free to use?",
       a: "Students and parents can browse and find tutors without registration charges.",
     },
     {
