@@ -2,7 +2,7 @@
 import { Orbitron } from "next/font/google";
 import cn from "@/lib/class-merge";
 import { HiMenu } from "react-icons/hi";
-import Button from "../ui/Button";
+import { NavButton } from "../ui/Button";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@public/icons/wanna-tutor.png";
@@ -69,7 +69,7 @@ export default function Header() {
           FAQ
         </Link>
       </nav>
-      <Button>Join For Free</Button>
+      <NavButton href="/become-tutor">Join For Free</NavButton>
     </header>
   );
 }

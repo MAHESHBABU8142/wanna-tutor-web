@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Button, { NavButton } from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 import Image from "next/image";
 import heroImage from "@/modules/home/assets/images/hero-image.png";
@@ -12,10 +12,16 @@ export default function HeroSection() {
           online and offline.
         </Text>
         <div className="flex gap-6 mt-3 items-center">
-          <Button className=" px-6 py-3 rounded-lg">Become a Tutor</Button>
-          <Button variant="secondary" className="px-6 py-3 rounded-lg">
+          <NavButton href="/become-tutor" className=" px-6 py-3 rounded-lg">
+            Become a Tutor
+          </NavButton>
+          <NavButton
+            href="/find-tutor"
+            variant="secondary"
+            className="px-6 py-3 rounded-lg"
+          >
             Find a Tutor
-          </Button>
+          </NavButton>
         </div>
       </div>
       <Image
