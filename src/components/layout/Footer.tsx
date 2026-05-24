@@ -18,7 +18,7 @@ export default function Footer() {
         </p>
         <div className="flex gap-4 py-2">
           <Link
-            href="https://wa.me/918074870325"
+            href="https://wa.me/918074870325?text=Hello%20WannaTutor,%20I%20want%20to%20know%20more%20about%20you"
             className="flex items-center gap-1 hover:underline"
           >
             <MdOutlineWhatsapp size={30} />
