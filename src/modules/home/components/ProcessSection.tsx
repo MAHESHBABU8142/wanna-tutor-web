@@ -67,8 +67,10 @@ function Step({ title, description, icon: Icon }: StepProps) {
   return (
     <li className="flex flex-col bg-blue-50 gap-4 items-start border border-gray-300 rounded-lg p-6">
       {Icon}
-      <Text className="md:text-3xl">{title}</Text>
-      <Text variant="secondary">{description}</Text>
+      <Text className="md:text-3xl text-2xl">{title}</Text>
+      <Text variant="secondary" className="text-base">
+        {description}
+      </Text>
     </li>
   );
 }
