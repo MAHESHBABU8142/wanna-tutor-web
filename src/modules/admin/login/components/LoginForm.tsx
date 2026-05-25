@@ -5,8 +5,7 @@ import WannaTutorLogo from "@public/icons/wanna-tutor.png";
 import Text from "@/components/ui/Text";
 import Button, { NavButton } from "@/components/ui/Button";
 import GoogleLogo from "@public/icons/google.png";
-import { signIn} from "next-auth/react";
-
+import { signIn } from "next-auth/react";
 export default function LoginForm() {
   return (
     <section className="flex flex-col items-center gap-4">
