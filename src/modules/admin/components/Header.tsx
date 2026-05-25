@@ -5,24 +5,27 @@ import Image from "next/image";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 import Button from "@/components/ui/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Header() {
   const { data: session, status } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="p-4 py-2 flex justify-between">
+    <header className="p-4 py-2 flex fixed top-0 left-0 right-0  z-50 bg-white   justify-between md:px-[4%] md:py-4 border-b border-gray-300 shadow">
       <BrandName />
 
-      {status !== "loading" && (
+      {status !== "loading" ? (
         <Image
           src={session?.user?.image || ""}
           alt="profile image"
           width={35}
           height={35}
-          className="rounded-full"
+          className="rounded-full cursor-pointer"
           onClick={() => setIsMenuOpen(true)}
         />
+      ) : (
+        <CircularProgress size={28} />
       )}
       {isMenuOpen && (
         <Menu
@@ -56,7 +59,7 @@ function Menu({
         <h2 className="text-xl font-medium">{name}</h2>
         <p>{email}</p>
         <Button
-          className="bg-red-500"
+          className="bg-red-500 "
           onClick={() => signOut({ callbackUrl: "/admin/login" })}
         >
           Logout

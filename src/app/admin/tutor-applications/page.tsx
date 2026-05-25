@@ -3,7 +3,7 @@ import ApplicationsList from "@/modules/admin/tutor-applications/components/Appl
 
 export default function TutorApplicationsPage() {
   return (
-    <section>
+    <section className="flex flex-col pt-13 md:pt-18">
       <Header />
       <ApplicationsList />
     </section>

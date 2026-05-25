@@ -7,7 +7,7 @@ export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
   if (session?.user?.role !== "Admin") return <AccessDenied />;
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col pt-13 md:pt-18">
       <Header />
       <OverviewSection />
     </section>
