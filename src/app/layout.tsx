@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-
+import Providers from "./providers";
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
 });
@@ -22,9 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${ibmPlexSans.className} antialiased`}>
       <body className="bg-white text-gray-900 pt-14">
-        <Header />
-        {children}
-        <Footer />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
