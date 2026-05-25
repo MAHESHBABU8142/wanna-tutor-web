@@ -6,10 +6,10 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <section className="flex flex-col pt-14 ">
       <Header />
       {children}
       <Footer />
-    </>
+    </section>
   );
 }

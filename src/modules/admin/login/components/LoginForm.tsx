@@ -10,7 +10,6 @@ import { signIn} from "next-auth/react";
 export default function LoginForm() {
   return (
     <section className="flex flex-col items-center gap-4">
-      <div id="google-signin-button"></div>
       <Image
         src={WannaTutorLogo}
         alt="Wanna Tutor Logo"

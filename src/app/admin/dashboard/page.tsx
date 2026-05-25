@@ -1,14 +1,15 @@
 import { getServerSession } from "next-auth";
-import Main from "@/modules/admin/dashboard/components/Main";
+import AccessDenied from "@/modules/admin/components/AccessDenied";
+import TutorApplicationsSection from "@/modules/admin/dashboard/components/TutorApplicationsSection";
+import Header from "@/modules/admin/components/Header";
 import { authOptions } from "@/lib/auth";
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
-  //if (session?.user?.role !== "Admin") return <h1>Access Denied</h1>;
-  console.log("session", session);
+  if (session?.user?.role !== "Admin") return <AccessDenied />;
   return (
     <section className="flex flex-col gap-10">
-      <h1>Role: {session?.user.role}</h1>
-      <Main />
+      <Header />
+      <TutorApplicationsSection />
     </section>
   );
 }

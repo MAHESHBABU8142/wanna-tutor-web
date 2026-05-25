@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
         );
         return true;
       } else {
-        return "/admin/login?message=AccessDenied";
+        return "/admin/login?message=access_denied";
       }
     },
     //=================during token creation================
@@ -64,7 +64,6 @@ export const authOptions: NextAuthOptions = {
         session.user.role = token.role;
         // session.user.userId = token.userId;
       }
-      console.log("this is token role", session.user.role);
       return session;
     },
   },
