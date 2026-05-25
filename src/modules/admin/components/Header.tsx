@@ -11,7 +11,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="p-4 flex justify-between bg-blue-50">
+    <header className="p-4 py-2 flex justify-between">
       <BrandName />
 
       {status !== "loading" && (
