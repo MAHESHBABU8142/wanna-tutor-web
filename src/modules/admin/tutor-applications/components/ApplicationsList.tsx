@@ -3,6 +3,7 @@ import Text from "@/components/ui/Text";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import Skeleton from "@mui/material/Skeleton";
+import Card from "@mui/material/Card";
 type Application = {
   id: string;
   name: string;
@@ -34,9 +35,9 @@ export default function ApplicationsList() {
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2">
           {applications.map((application) => {
             return (
-              <li
+              <Card
                 key={application.id}
-                className="flex flex-col gap-3 bg-blue-50 rounded-lg p-4 border border-gray-200 relative"
+                className="flex flex-col gap-3 p-4 border border-gray-200 relative"
               >
                 <Detail property="Name" value={application.name} />
                 <Detail property="Email" value={application.email} />
@@ -51,7 +52,7 @@ export default function ApplicationsList() {
                     "DD MMM YY hh:mm A",
                   )}
                 />
-              </li>
+              </Card>
             );
           })}
         </ul>

@@ -4,6 +4,7 @@ import Text from "@/components/ui/Text";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
+import MuiCard from "@mui/material/Card";
 
 export default function OverViewSection() {
   const [tutorApplications, setTutorApplications] = useState([]);
@@ -47,14 +48,14 @@ function Card({
 }) {
   return (
     <Link href={href}>
-      <li className="flex flex-col gap-4 bg-white rounded-lg p-4 border border-gray-200 relative">
+      <MuiCard className="flex flex-col gap-4 p-4 border border-gray-200 relative">
         <Text className="text-lg font-medium md:text-2xl">{title}</Text>
         {!isLoading && (
           <h3 className="text-3xl font-semibold md:text-4xl">{count}</h3>
         )}
         {isLoading && <CircularProgress size={28} />}
         <MdKeyboardArrowRight className="text-2xl absolute bottom-4 right-4 text-gray-500" />
-      </li>
+      </MuiCard>
     </Link>
   );
 }

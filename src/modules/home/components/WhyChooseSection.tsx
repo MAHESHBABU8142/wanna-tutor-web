@@ -7,7 +7,7 @@ import WhyChooseList from "@/components/shared/WhyChooseList";
 
 export default function WhyChoose() {
   return (
-    <section className="flex flex-col items-center gap-5 px-3">
+    <section className="flex flex-col items-center gap-5 px-5">
       <Text className="text-center">Why choose WannaTutor?</Text>
       <WhyChooseList
         reasons={[
