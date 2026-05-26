@@ -2,7 +2,7 @@
 import Text from "@/components/ui/Text";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
-import CircularProgress from "@mui/material/CircularProgress";
+import Skeleton from "@mui/material/Skeleton";
 type Application = {
   id: string;
   name: string;
@@ -26,7 +26,7 @@ export default function ApplicationsList() {
   }, []);
 
   return (
-    <section className="flex flex-col gap-4 px-4 py-2 md:px-[4%]">
+    <section className="flex flex-col gap-4 px-4 py-2 md:px-[4%] pb-[10%]">
       <Text className="text-xl md:text-3xl">
         Applications ({applications.length})
       </Text>
@@ -56,7 +56,13 @@ export default function ApplicationsList() {
           })}
         </ul>
       ) : (
-        <CircularProgress size={40} className="self-center mt-30" />
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
+          {[...Array(6).keys()].map((i) => (
+            <li key={i}>
+              <SkeletonCard />
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   );
@@ -67,5 +73,19 @@ function Detail({ property, value }: { property: string; value: string }) {
     <p className="font-medium">
       {property}: {value}
     </p>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <Skeleton
+      animation="wave"
+      variant="rectangular"
+      height={200}
+      className="rounded-lg"
+      sx={{
+        bgcolor: "#DCDFE0",
+      }}
+    />
   );
 }
