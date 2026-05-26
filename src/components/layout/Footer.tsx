@@ -7,7 +7,7 @@ import { MdOutlineWhatsapp } from "react-icons/md";
 import { GrYoutube } from "react-icons/gr";
 export default function Footer() {
   return (
-    <footer className="bg-black text-white flex flex-col p-6 gap-6 mt-10 md:flex-row md:grid md:gap-8 md:grid-cols-4 md:items-stretch md:py-12">
+    <footer className="bg-[#111111] text-white flex flex-col p-6 gap-6 mt-10 md:flex-row md:grid md:gap-8 md:grid-cols-4 md:items-stretch md:py-12">
       <div className="flex gap-2 flex-col">
         <Image src={Logo} alt="Wanna Tutor Logo" width={50} height={50} />
         <BrandName className="text-white" />
