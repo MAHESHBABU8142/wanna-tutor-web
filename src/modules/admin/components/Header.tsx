@@ -23,7 +23,7 @@ export default function Header() {
   const handleMenuClose = () => setAnchorEl(null);
 
   return (
-    <header className="p-4 py-2 flex fixed top-0 left-0 right-0  z-50 bg-white   justify-between md:px-[4%] md:py-4 border-b border-gray-300 shadow">
+    <header className="p-4 py-2 flex fixed top-0 left-0 right-0  z-50 bg-white items-center justify-between md:px-[4%] md:py-4 border-b border-gray-300 shadow">
       <BrandName />
       <Avatar
         src={session?.user?.image || ""}
@@ -58,9 +58,9 @@ export default function Header() {
         <MenuItem sx={{ gap: 1, borderBottom: "1px solid #DCDFE0" }}>
           <Avatar
             src={session?.user?.image || ""}
-            sx={{ width: 22, height: 22, paddingBottom: 0, marginBottom: 0 }}
-          />{" "}
-          My account
+            sx={{ width: 26, height: 26, paddingBottom: 0, marginBottom: 0 }}
+          />
+          My Account
         </MenuItem>
         <MenuItem onClick={() => router.push("/admin/tutor-applications")}>
           <ListItemIcon>

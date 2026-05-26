@@ -2,11 +2,14 @@
 import { Orbitron } from "next/font/google";
 import cn from "@/lib/class-merge";
 import { HiMenu } from "react-icons/hi";
-import { NavButton } from "../ui/Button";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@public/icons/wanna-tutor.png";
 import { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import Button, { NavButton } from "@/components/ui/Button";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -14,6 +17,8 @@ const orbitron = Orbitron({
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isJoinDialogOpen, setIsJoinDialogOpen] = useState(false);
+
   return (
     <header className="flex shadow items-center md:px-[7%] justify-between py-3 px-4 bg-white fixed top-0 left-0 right-0 z-10">
       <div className="flex items-center gap-3 ">
@@ -69,7 +74,11 @@ export default function Header() {
           FAQ
         </Link>
       </nav>
-      <NavButton href="/become-tutor">Join For Free</NavButton>
+      <Button onClick={() => setIsJoinDialogOpen(true)}>Join For Free</Button>
+      <JoinDialog
+        isJoinDialogOpen={isJoinDialogOpen}
+        setIsJoinDialogOpen={setIsJoinDialogOpen}
+      />
     </header>
   );
 }
@@ -89,3 +98,36 @@ const BrandName = ({ className }: { className?: string }) => {
 };
 
 export { BrandName };
+
+function JoinDialog({
+  isJoinDialogOpen,
+  setIsJoinDialogOpen,
+}: {
+  isJoinDialogOpen: boolean;
+  setIsJoinDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  return (
+    <Dialog open={isJoinDialogOpen} onClose={() => setIsJoinDialogOpen(false)}>
+      <DialogTitle>Join WannaTutor</DialogTitle>
+
+      <DialogContent className="flex flex-col gap-4">
+        <NavButton
+          onClick={() => setIsJoinDialogOpen(false)}
+          variant="secondary"
+          href="/become-tutor"
+          className="text-base py-2 px-4 rounded-md"
+        >
+          Join as a Tutor
+        </NavButton>
+        <NavButton
+          onClick={() => setIsJoinDialogOpen(false)}
+          variant="secondary"
+          href="/find-tutor"
+          className="text-base py-2 px-4 rounded-md"
+        >
+          Join as a Student/Parent
+        </NavButton>
+      </DialogContent>
+    </Dialog>
+  );
+}
