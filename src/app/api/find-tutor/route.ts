@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
-import { tutorApplicationCollection } from "@/lib/db";
+import { parentApplicationCollection } from "@/lib/db";
 export async function POST(req: Request) {
   try {
+  
     const body = await req.json();
     //data validation
-    if (!body.fullName || !body.phone || !body.teachingMode) {
+    if (
+      !body.requesterType ||
+      !body.fullName ||
+      !body.phone ||
+      !body.grade ||
+      !body.preferredMode
+    ) {
       return NextResponse.json(
         { success: false, message: "Missing required fields." },
         { status: 400 },
@@ -14,12 +21,13 @@ export async function POST(req: Request) {
       full_name: body.fullName,
       phone: body.phone,
       email: body.email || null,
-      teaching_mode: body.teachingMode,
+      grade: body.grade,
+      preferred_mode: body.preferredMode,
       created_at: new Date(),
     };
     //insert data into db
 
-    const result = await tutorApplicationCollection.insertOne(application);
+    const result = await parentApplicationCollection.insertOne(application);
 
     if (!result.acknowledged) {
       return NextResponse.json(
