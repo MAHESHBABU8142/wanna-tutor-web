@@ -31,7 +31,7 @@ export default function ApplicationsList() {
         Applications ({applications.length})
       </Text>
       {!isLoading ? (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2">
           {applications.map((application) => {
             return (
               <li
@@ -56,7 +56,7 @@ export default function ApplicationsList() {
           })}
         </ul>
       ) : (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2">
           {[...Array(6).keys()].map((i) => (
             <li key={i}>
               <SkeletonCard />

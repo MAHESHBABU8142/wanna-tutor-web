@@ -3,4 +3,5 @@
 body{
   background-color: #ffffff;
   color:black;
+  font-family: var(--font-ibm-plex-sans);
 }
