@@ -8,16 +8,21 @@ import MuiCard from "@mui/material/Card";
 
 export default function OverViewSection() {
   const [tutorApplications, setTutorApplications] = useState([]);
+  const [parentApplications, setParentApplications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    async function getTutorApplications() {
+    async function getApplications() {
+      //for tutor applications
       const res = await fetch("/api/admin/tutor-applications");
       const data = await res.json();
-      console.log(data);
       if (data.success) setTutorApplications(data.data);
+      //for parent applications
+      const res2 = await fetch("/api/admin/parent-applications");
+      const data2 = await res2.json();
+      if (data2.success) setParentApplications(data2.data);
       setIsLoading(false);
     }
-    getTutorApplications();
+    getApplications();
   }, []);
 
   return (
@@ -28,6 +33,12 @@ export default function OverViewSection() {
           title="Tutor Applications"
           count={tutorApplications.length}
           href="/admin/tutor-applications"
+          isLoading={isLoading}
+        />
+        <Card
+          title="Parent Applications"
+          count={parentApplications.length}
+          href="/admin/parent-applications"
           isLoading={isLoading}
         />
       </ul>

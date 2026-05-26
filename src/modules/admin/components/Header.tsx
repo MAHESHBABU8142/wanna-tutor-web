@@ -68,11 +68,11 @@ export default function Header() {
           </ListItemIcon>
           Tutor Applications
         </MenuItem>
-        <MenuItem onClick={() => router.push("/admin/student-applications")}>
+        <MenuItem onClick={() => router.push("/admin/parent-applications")}>
           <ListItemIcon>
             <GrGroup size={23} />
           </ListItemIcon>
-          Student Applications
+          Parent Applications
         </MenuItem>
         <MenuItem onClick={() => router.push("/admin/dashboard")}>
           <ListItemIcon>

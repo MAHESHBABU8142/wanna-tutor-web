@@ -11,7 +11,8 @@ type Application = {
   name: string;
   email: string;
   phone: string;
-  teachingMode: string;
+  grade: string;
+  preferredMode: string;
   appliedAt: Date;
 };
 
@@ -20,7 +21,7 @@ export default function ApplicationsList() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function getApplications() {
-      const res = await fetch("/api/admin/tutor-applications");
+      const res = await fetch("/api/admin/parent-applications");
       const data = await res.json();
       if (data.success) setApplications(data.data.reverse());
       setIsLoading(false);
@@ -31,7 +32,7 @@ export default function ApplicationsList() {
   return (
     <section className="flex flex-col gap-4 px-4 py-2 md:px-[4%] pb-[10%]">
       <Text className="text-xl md:text-3xl">
-        Tutor Applications ({applications.length})
+        Parent Applications ({applications.length})
       </Text>
       {!isLoading ? (
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2">
@@ -41,9 +42,10 @@ export default function ApplicationsList() {
                 <Detail property="Name" value={application.name} />
                 <Detail property="Email" value={application.email} />
                 <Detail property="Phone" value={application.phone} />
+                <Detail property="Grade" value={application.grade} />
                 <Detail
-                  property="Teaching Mode"
-                  value={application.teachingMode}
+                  property="Preferred Mode"
+                  value={application.preferredMode}
                 />
                 <Detail
                   property="Applied At"

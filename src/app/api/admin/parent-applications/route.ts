@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { NextResponse } from "next/server";
-import { tutorApplicationCollection } from "@/lib/db";
+import { parentApplicationCollection } from "@/lib/db";
 
 export async function GET() {
   //check if user is admin
@@ -12,14 +12,15 @@ export async function GET() {
       { status: 401 },
     );
 
-  const data = await tutorApplicationCollection.find({}).toArray();
-  const tutorApplications = data.map((doc) => {
+  const data = await parentApplicationCollection.find({}).toArray();
+  const parentApplications = data.map((doc) => {
     return {
       id: doc._id,
       name: doc.full_name,
       phone: doc.phone,
       email: doc.email,
-      teachingMode: doc.teaching_mode,
+      grade: doc.grade,
+      preferredMode: doc.preferred_mode,
       createdAt: doc.created_at,
     };
   });
@@ -28,7 +29,7 @@ export async function GET() {
     {
       success: true,
       message: "Success",
-      data: tutorApplications,
+      data: parentApplications,
     },
     { status: 200 },
   );
