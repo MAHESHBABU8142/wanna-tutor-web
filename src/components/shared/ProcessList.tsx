@@ -1,4 +1,5 @@
 import Text from "@/components/ui/Text";
+import Card from "@mui/material/Card";
 
 export default function ProcessList({ steps }: { steps: StepProps[] }) {
   return (
@@ -18,12 +19,12 @@ type StepProps = {
 
 function Step({ title, description, icon: Icon }: StepProps) {
   return (
-    <li className="flex flex-col bg-blue-50 gap-4 items-start border border-gray-300 rounded-lg p-6">
+    <Card className="flex flex-col bg-white gap-4 items-start p-6 border border-gray-200">
       {Icon}
       <Text className="md:text-3xl text-2xl">{title}</Text>
       <Text variant="secondary" className="text-base">
         {description}
       </Text>
-    </li>
+    </Card>
   );
 }

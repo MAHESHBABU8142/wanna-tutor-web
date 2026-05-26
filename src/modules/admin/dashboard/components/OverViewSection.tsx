@@ -4,19 +4,25 @@ import Text from "@/components/ui/Text";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
+import MuiCard from "@mui/material/Card";
 
 export default function OverViewSection() {
   const [tutorApplications, setTutorApplications] = useState([]);
+  const [parentApplications, setParentApplications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    async function getTutorApplications() {
+    async function getApplications() {
+      //for tutor applications
       const res = await fetch("/api/admin/tutor-applications");
       const data = await res.json();
-      console.log(data);
       if (data.success) setTutorApplications(data.data);
+      //for parent applications
+      const res2 = await fetch("/api/admin/parent-applications");
+      const data2 = await res2.json();
+      if (data2.success) setParentApplications(data2.data);
       setIsLoading(false);
     }
-    getTutorApplications();
+    getApplications();
   }, []);
 
   return (
@@ -27,6 +33,12 @@ export default function OverViewSection() {
           title="Tutor Applications"
           count={tutorApplications.length}
           href="/admin/tutor-applications"
+          isLoading={isLoading}
+        />
+        <Card
+          title="Parent Applications"
+          count={parentApplications.length}
+          href="/admin/parent-applications"
           isLoading={isLoading}
         />
       </ul>
@@ -47,14 +59,14 @@ function Card({
 }) {
   return (
     <Link href={href}>
-      <li className="flex flex-col gap-4 bg-white rounded-lg p-4 border border-gray-200 relative">
+      <MuiCard className="flex flex-col gap-4 p-4 border border-gray-200 relative">
         <Text className="text-lg font-medium md:text-2xl">{title}</Text>
         {!isLoading && (
           <h3 className="text-3xl font-semibold md:text-4xl">{count}</h3>
         )}
         {isLoading && <CircularProgress size={28} />}
         <MdKeyboardArrowRight className="text-2xl absolute bottom-4 right-4 text-gray-500" />
-      </li>
+      </MuiCard>
     </Link>
   );
 }
