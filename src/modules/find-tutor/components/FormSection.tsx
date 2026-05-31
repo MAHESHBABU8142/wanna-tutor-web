@@ -90,6 +90,7 @@ export default function FormSection() {
             type="tel"
             placeholder="Enter your phone number"
             required
+            maxLength={14}
             value={formData.phone}
             onChange={(e) =>
               setFormData({ ...formData, phone: e.target.value })

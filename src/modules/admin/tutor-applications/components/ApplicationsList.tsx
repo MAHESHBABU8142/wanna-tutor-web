@@ -12,7 +12,7 @@ type Application = {
   email: string;
   phone: string;
   teachingMode: string;
-  appliedAt: Date;
+  createdAt: Date;
 };
 
 export default function ApplicationsList() {
@@ -47,8 +47,8 @@ export default function ApplicationsList() {
                 />
                 <Detail
                   property="Applied At"
-                  value={dayjs(application.appliedAt).format(
-                    "DD MMM YY hh:mm A",
+                  value={dayjs(application.createdAt).format(
+                    "DD MMM YYYY, h:mm A",
                   )}
                 />
               </ApplicationCard>

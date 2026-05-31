@@ -67,10 +67,18 @@ export default function Footer() {
         label="Contact Us"
         links={[
           {
-            name: "Email: info@wannatutor.com",
-            href: "mailto:info@wannatutor.com",
+            name: "Email: info@wannatutor.in",
+            href: "mailto:info@wannatutor.in",
           },
           { name: "Phone: +91 8074870325", href: "tel:+91 8074870325" },
+          {
+            name: "WhatsApp: +91 8074870325",
+            href: "https://wa.me/918074870325?text=Hello%20WannaTutor,%20I%20want%20to%20know%20more%20about%20you",
+          },
+          {
+            name: "Address: Hyderabad, Telangana, India",
+            href: "#",
+          },
         ]}
       />
       <p className="text-center border-t border-gray-200/20 pt-4 text-sm">
