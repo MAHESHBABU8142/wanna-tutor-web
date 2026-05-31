@@ -9,7 +9,8 @@ export default function Input({ label, required, ...props }: InputProps) {
   return (
     <label htmlFor={label} className="font-semibold ">
       <p>
-        {label} {required && <span className="text-red-600 text-sm"> *</span>}
+        {label}
+        {required && <sup className="text-red-600 text-sm">*</sup>}
       </p>
       <input
         type="text"
@@ -31,7 +32,8 @@ function Select({ label, required, optionsList, ...props }: SelectProps) {
   return (
     <label htmlFor={label} className="font-semibold ">
       <p>
-        {label} {required && <span className="text-red-600 text-sm"> *</span>}
+        {label}
+        {required && <sup className="text-red-600 text-sm">*</sup>}
       </p>
       <select
         id={label}

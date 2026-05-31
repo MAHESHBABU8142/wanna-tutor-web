@@ -11,13 +11,14 @@ import { MdSchool } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
 import { GrGroup } from "react-icons/gr";
 import { TbLogout } from "react-icons/tb";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const { data: session } = useSession();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
   const router = useRouter();
+  const pathname = usePathname();
   const handleProfileClick = (e: React.MouseEvent<HTMLElement>) =>
     setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
@@ -62,19 +63,28 @@ export default function Header() {
           />
           My Account
         </MenuItem>
-        <MenuItem onClick={() => router.push("/admin/tutor-applications")}>
+        <MenuItem
+          onClick={() => router.push("/admin/tutor-applications")}
+          selected={pathname === "/admin/tutor-applications"}
+        >
           <ListItemIcon>
             <MdSchool size={23} />
           </ListItemIcon>
           Tutor Applications
         </MenuItem>
-        <MenuItem onClick={() => router.push("/admin/parent-applications")}>
+        <MenuItem
+          onClick={() => router.push("/admin/parent-applications")}
+          selected={pathname === "/admin/parent-applications"}
+        >
           <ListItemIcon>
             <GrGroup size={23} />
           </ListItemIcon>
           Parent Applications
         </MenuItem>
-        <MenuItem onClick={() => router.push("/admin/dashboard")}>
+        <MenuItem
+          onClick={() => router.push("/admin/dashboard")}
+          selected={pathname === "/admin/dashboard"}
+        >
           <ListItemIcon>
             <RiDashboardLine size={23} />
           </ListItemIcon>
