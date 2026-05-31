@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "Wanna Tutor",
   description:
     "A platform connecting students with tutors for personalized learning experiences.",
+  openGraph: {
+    title: "Wanna Tutor",
+    description:
+      "A platform connecting students with tutors for personalized learning experiences.",
+  },
 };
 
 export default function RootLayout({
