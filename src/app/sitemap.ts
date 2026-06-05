@@ -6,19 +6,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://www.wannatutor.in",
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 5,
+      priority: 1.0,
     },
     {
       url: "https://www.wannatutor.in/find-tutor",
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 4,
+      priority: 0.9,
     },
     {
       url: "https://www.wannatutor.in/become-tutor",
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 3,
+      priority: 0.8,
     },
   ];
 }
