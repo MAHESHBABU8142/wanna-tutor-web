@@ -85,6 +85,7 @@ export default function Header() {
 
 const BrandName = ({ className }: { className?: string }) => {
   return (
+    <Link href="/">
     <h1
       className={cn(
         "text-xl text-blue-950 font-bold md:text-2xl",
@@ -93,7 +94,8 @@ const BrandName = ({ className }: { className?: string }) => {
       )}
     >
       Wanna<strong className="font-bold text-orange-400">Tutor</strong>
-    </h1>
+      </h1>
+    </Link>
   );
 };
 
