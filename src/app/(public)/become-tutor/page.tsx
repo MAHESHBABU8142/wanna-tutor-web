@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Become a Tutor - Wanna Tutor",
   description:
     "Join Wanna Tutor as a tutor and share your knowledge with eager learners. Submit your details and our team will contact you within 24 hours to verify and complete your profile.",
+  alternates: {
+    canonical: "/b",
+  },
 };
 export default function BecomeTutorPage() {
   return (
